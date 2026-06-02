@@ -1,0 +1,6 @@
+Hypothesis,Statement,Test_Method,Test_Statistic,P_Value,Decision,Support_Level
+H1,Bond-market / GDP differs across US India GCC,One-way ANOVA,1210.99,0.000,Reject H0,Strongly Supported
+H2,Investor HHI is negatively correlated with liquidity,Pearson Correlation (r=-0.87),−0.87,0.330,Fail to reject H0 (n too small),Direction Supported
+H3 Cross-section,Bank-credit dominance predicts corp-bond size,OLS Regression,0.077,0.543,Fail to reject H0,Not Supported
+H3 Panel FE,Bank-credit dominance after country fixed effects,Panel FE / LSDV,3.17,0.000,Significant,Strongly Supported
+H4,Yield pickup in EM not justified on risk-adjusted basis,Sharpe Differential,1.67,n/a,H0 not rejected - India/GCC attractive,Partially Supported
