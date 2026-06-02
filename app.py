@@ -4,6 +4,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import numpy as np
+import os
+
+# Resolve data folder relative to this script (works locally + Streamlit Cloud)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
 # ── Page Config ─────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -71,14 +76,15 @@ st.markdown(f"""
 # ── Load Data ────────────────────────────────────────────────────────────────
 @st.cache_data
 def load():
-    bond    = pd.read_csv("data/bond_market_size.csv")
-    liq     = pd.read_csv("data/liquidity_indicators.csv")
-    inv     = pd.read_csv("data/investor_composition.csv")
-    struct  = pd.read_csv("data/structural_indicators.csv")
-    h3cross = pd.read_csv("data/cross_country_h3.csv")
-    panel   = pd.read_csv("data/panel_regression.csv")
-    hyp     = pd.read_csv("data/hypothesis_summary.csv")
-    yield_  = pd.read_csv("data/yield_risk.csv")
+    def p(f): return os.path.join(DATA_DIR, f)
+    bond    = pd.read_csv(p("bond_market_size.csv"))
+    liq     = pd.read_csv(p("liquidity_indicators.csv"))
+    inv     = pd.read_csv(p("investor_composition.csv"))
+    struct  = pd.read_csv(p("structural_indicators.csv"))
+    h3cross = pd.read_csv(p("cross_country_h3.csv"))
+    panel   = pd.read_csv(p("panel_regression.csv"))
+    hyp     = pd.read_csv(p("hypothesis_summary.csv"))
+    yield_  = pd.read_csv(p("yield_risk.csv"))
     return bond, liq, inv, struct, h3cross, panel, hyp, yield_
 
 bond, liq, inv, struct, h3cross, panel, hyp, yield_ = load()

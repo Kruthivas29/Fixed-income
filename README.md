@@ -4,10 +4,23 @@
 
 ## 🚀 Deploy on Streamlit Community Cloud
 
-1. **Fork / push this repo to GitHub**
-2. Go to [share.streamlit.io](https://share.streamlit.io) → New App
-3. Select your repo, branch `main`, file `app.py`
-4. Click **Deploy**
+1. **Push this entire folder to GitHub** — make sure the `data/` folder and all 8 CSVs are committed (not just `app.py`)
+2. Verify your repo looks like this on GitHub:
+   ```
+   your-repo/
+   ├── app.py
+   ├── requirements.txt
+   └── data/
+       ├── bond_market_size.csv
+       ├── liquidity_indicators.csv
+       └── ... (all 8 CSVs)
+   ```
+3. Go to [share.streamlit.io](https://share.streamlit.io) → New App
+4. Select your repo, branch `main`, **Main file path:** `app.py`
+5. Click **Deploy**
+
+> ⚠️ **Common mistake:** If you only drag `app.py` to GitHub without the `data/` folder, you'll get a `FileNotFoundError`. Always commit the full folder.
+
 
 ## 📁 Project Structure
 ```
